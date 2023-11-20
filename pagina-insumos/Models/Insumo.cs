@@ -17,5 +17,7 @@ namespace pagina_insumos.Models
 
         [Required(ErrorMessage = "Obrigatório informar o valor")]
         public int Valor { get; set; }
+
+        public ICollection<Gasto> Gastos { get; set; }
     }
 }

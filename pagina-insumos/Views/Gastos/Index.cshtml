@@ -1,0 +1,59 @@
+﻿@model IEnumerable<pagina_insumos.Models.Gasto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Gastos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Adicionar gastos com insumos</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Insumo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Insumo.Nome)
+            </td>
+                <td>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Visualizar</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

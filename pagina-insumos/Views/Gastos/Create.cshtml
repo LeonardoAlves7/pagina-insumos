@@ -1,0 +1,50 @@
+﻿@model pagina_insumos.Models.Gasto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Gasto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Preco" class="control-label"></label>
+                <input asp-for="Preco" class="form-control" />
+                <span asp-validation-for="Preco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantia" class="control-label"></label>
+                <input asp-for="Quantia" class="form-control" />
+                <span asp-validation-for="Quantia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InsumoId" class="control-label"></label>
+                <select asp-for="InsumoId" class ="form-control" asp-items="ViewBag.InsumoId"></select>
+            </div>
+            <div class="form-group">
+                <p></p>
+                <a asp-action="Index" class="btn btn-info">Voltar</a>
+                <input type="submit" value="Adicionar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
